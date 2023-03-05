@@ -1,5 +1,6 @@
 pipeline {
     // master executor should be set to 0
+    agent any
     stages {
 		stage("Start Grid"){
 			steps{
