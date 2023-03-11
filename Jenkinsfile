@@ -15,8 +15,8 @@ pipeline {
 	}
 	post{
 		always{
+		    archiveArtifacts artifacts: 'Reports/ExecutionReport.html', followSymlinks: false
 			bat "docker-compose down"
-
 		}
 	}
 }
