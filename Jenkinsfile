@@ -16,6 +16,7 @@ pipeline {
 	post{
 		always{
 		    archiveArtifacts artifacts: 'Reports/ExecutionReport.html', followSymlinks: false
+		    junit 'target / surefire-reports /*.xml'
 			bat "docker-compose down"
 		}
 	}
