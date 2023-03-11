@@ -45,7 +45,7 @@ public class BrowserFactory {
 			System.setProperty("webdriver.chrome.silentOutput", "true");
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--incognito");
-			driver = new RemoteWebDriver(new URL("http://192.168.1.5:4444/wd/hub"), DesiredCapabilities.chrome());
+			driver = new RemoteWebDriver(new URL("http://192.168.1.7:4444/wd/hub"), DesiredCapabilities.chrome());
 
 			
 			//driver = new FirefoxDriver(foptions);
