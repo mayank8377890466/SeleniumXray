@@ -4,12 +4,12 @@ pipeline {
     stages {
 		stage("Start Grid"){
 			steps{
-				bat "docker-compose up -d hub_1 chrome firefox"
+				sh "docker-compose up -d hub_1 chrome firefox"
 			}
 		}
 		stage("Run Test"){
 			steps{
-				bat "mvn clean test"
+				sh "mvn clean test"
 			}
 		}
 	}
@@ -17,7 +17,7 @@ pipeline {
 		always{
 		    archiveArtifacts artifacts: 'Reports/ExecutionReport.html', followSymlinks: false
 		    junit 'target/surefire-reports/*.xml'
-			bat "docker-compose down"
+			sh "docker-compose down"
 		}
 	}
 }
