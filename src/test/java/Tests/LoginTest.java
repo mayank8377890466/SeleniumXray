@@ -74,16 +74,16 @@ public class LoginTest extends TestBase {
             registrationPage.enterPassword(testdata.get("password"));
             loginPage.clickLoginButton();
             //loginPage.verifyLogin();
-            result = TestLinkAPIResults.TEST_PASSED;
-            notes = "Executed successfully";
+            //result = TestLinkAPIResults.TEST_PASSED;
+            //notes = "Executed successfully";
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
-            TeslinkEngine.notes = "Execution failed";
+            //TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
+            //TeslinkEngine.notes = "Execution failed";
             Assert.fail("Cant do login");
         } finally {
-            reportResult(testProject, testPlan, testCase, build, notes, result);
+            //reportResult(testProject, testPlan, testCase, build, notes, result);
             ExtentFactory.getInstance().getExtent().assignCategory("Login");
             ExtentFactory.getInstance().getExtent().assignAuthor("Mayank Mishra");
         }
@@ -107,16 +107,16 @@ public class LoginTest extends TestBase {
             registrationPage.enterPassword(testdata.get("password"));
             loginPage.clickLoginButton();
             loginPage.verifyLogin();
-            result = TestLinkAPIResults.TEST_PASSED;
-            notes = "Executed successfully";
+            //result = TestLinkAPIResults.TEST_PASSED;
+            //notes = "Executed successfully";
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
-            TeslinkEngine.notes = "Execution failed";
+            //TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
+            //TeslinkEngine.notes = "Execution failed";
             Assert.fail("Cant do login");
         }finally {
-            reportResult(testProject, testPlan, testCase, build, notes, result);
+            //reportResult(testProject, testPlan, testCase, build, notes, result);
             ExtentFactory.getInstance().getExtent().assignCategory("Login");
             assignAuthor();
             assignDevice();

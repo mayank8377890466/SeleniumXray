@@ -67,17 +67,17 @@ public class    ForgotPasswordTest extends TestBase {
             forgotPasswordPage.clickForgotPasswordLink();
            forgotPasswordPage.clickSubmit();
             forgotPasswordPage.verifyBlankEmailMessage();
-            result = TestLinkAPIResults.TEST_PASSED;
-            notes = "Executed successfully";
+            //result = TestLinkAPIResults.TEST_PASSED;
+            //notes = "Executed successfully";
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
-            TeslinkEngine.notes = "Execution failed";
+            //TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
+            //TeslinkEngine.notes = "Execution failed";
             Assert.fail("Cant do login");
         }
         finally {
-            reportResult(testProject, testPlan, testCase, build, notes, result);
+            //reportResult(testProject, testPlan, testCase, build, notes, result);
             ExtentFactory.getInstance().getExtent().assignCategory("Forgot Password");
             ExtentFactory.getInstance().getExtent().assignAuthor("Mayank Mishra");
         }
@@ -94,17 +94,17 @@ public class    ForgotPasswordTest extends TestBase {
             forgotPasswordPage.enterEmail();
             forgotPasswordPage.clickSubmit();
             forgotPasswordPage.verifySuccessMessage(testdata.get("email"));
-            result = TestLinkAPIResults.TEST_PASSED;
-            notes = "Executed successfully";
+            //result = TestLinkAPIResults.TEST_PASSED;
+            //notes = "Executed successfully";
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
-            TeslinkEngine.notes = "Execution failed";
+            //TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
+            //TeslinkEngine.notes = "Execution failed";
             Assert.fail("Cant do login");
         }
         finally {
-            reportResult(testProject, testPlan, testCase, build, notes, result);
+            //reportResult(testProject, testPlan, testCase, build, notes, result);
             ExtentFactory.getInstance().getExtent().assignCategory("Forgot Password");
             ExtentFactory.getInstance().getExtent().assignAuthor("Mayank Mishra");
         }

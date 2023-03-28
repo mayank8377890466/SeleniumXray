@@ -4,6 +4,6 @@ services:
     image: anshooarora/klov:1.0.1
     container_name: klov
     environment:
-      - SPRING_DATA_MONGODB_URI=mongodb://127.0.0.1:27017
+      - SPRING_DATA_MONGODB_URI=mongodb://host.docker.internal:27017
     ports:
-      - 80:81
+      - 85:85
