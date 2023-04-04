@@ -4,10 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentKlovReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import com.aventstack.extentreports.reporter.configuration.ViewName;
+import com.mongodb.MongoClientURI;
 import reusableComponents.PropertiesOperations;
 
 /**
@@ -84,6 +86,12 @@ public class ExtentReportNG {
 		extent.setSystemInfo("Executed by User: ", System.getProperty("user.name"));
 		extent.setSystemInfo("OS", "Windows");
 		extent.setSystemInfo("ENV", "QA");
+
+		ExtentKlovReporter klov = new ExtentKlovReporter("test_klov_server", "test_klov");
+		klov.initMongoDbConnection(new MongoClientURI("mongodb://user:password@localhost:57017"));
+		klov.initKlovServerConnection("http://localhost:6780");
+		extent.attachReporter(klov);
+
 
 		return extent;
 	}

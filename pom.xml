@@ -222,6 +222,13 @@
             <artifactId>plexus-utils</artifactId>
             <version>3.0.17</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.aventstack/klov-reporter -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>klov-reporter</artifactId>
+            <version>5.0.2</version>
+        </dependency>
+
 
     </dependencies>
 
