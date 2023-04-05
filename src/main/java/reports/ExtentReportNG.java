@@ -90,7 +90,7 @@ public class ExtentReportNG {
 		ExtentKlovReporter klov = new ExtentKlovReporter("test_klov_server", "test_klov");
 		klov.initMongoDbConnection(new MongoClientURI("mongodb://user:password@localhost:57017"));
 		klov.initKlovServerConnection("http://localhost:6780");
-		extent.attachReporter(klov);
+		extent.attachReporter(sparkReport,klov);
 
 
 		return extent;
