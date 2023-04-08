@@ -2,7 +2,13 @@ pipeline {
     // master executor should be set to 0
     agent any
     stages {
-		stage("Start Grid"){
+      stage("SonarQube Analysis"){
+         steps{
+           withSonarQubeEnv("sonarqube-10.0")
+           sh mvn sonar:sonar
+          }
+      }
+	  stage("Start Grid"){
 			steps{
 				sh "docker-compose up -d hub_1 chrome firefox"
 			}
