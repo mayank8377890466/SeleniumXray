@@ -5,7 +5,7 @@ pipeline {
       stage("SonarQube Analysis"){
          steps{
            withSonarQubeEnv("sonarqube-10.0")
-           sh mvn sonar:sonar
+           sh "mvn sonar:sonar"
           }
       }
 	  stage("Start Grid"){
