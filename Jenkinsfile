@@ -7,18 +7,19 @@ pipeline {
 				sh "docker-compose up -d hub_1 chrome firefox"
 			}
 		}
+		stage("SonarQube Analysis"){
+                 steps{
+                   withSonarQubeEnv("sonarqube"){
+                       sh "mvn sonar:sonar"
+                   }
+                  }
+              }
 		stage("Run Test"){
 			steps{
 				sh "mvn clean test"
 			}
 		}
-		stage("SonarQube Analysis"){
-         steps{
-           withSonarQubeEnv("sonarqube"){
-               sh "mvn sonar:sonar"
-           }
-          }
-      }
+
 	}
 	post{
 		always{
