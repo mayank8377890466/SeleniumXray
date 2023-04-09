@@ -19,10 +19,10 @@ pipeline {
 				sh "mvn clean test"
 			}
 		}
-
 	}
 	post{
 		always{
+	        jacoco()
 		    archiveArtifacts artifacts: 'Reports/ExecutionReport.html', followSymlinks: false
 		    junit 'target/surefire-reports/*.xml'
 			sh "docker-compose down"
