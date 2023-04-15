@@ -3,7 +3,7 @@ pipeline {
     agent any
     options
     {
-    option([parameters([choice(choices: ['chrome', 'firefox', 'edge', 'grid'],
+    properties([parameters([choice(choices: ['chrome', 'firefox', 'edge', 'grid'],
          description: 'select a browser type', name: 'browser'),
          string(defaultValue: 'http://10.0.2.15:4444/wd/hub', description: 'enter grid hub url',
           name: 'grid_url')])])
