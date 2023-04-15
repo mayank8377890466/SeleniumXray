@@ -19,7 +19,7 @@ pipeline {
 		}
 		stage("Run Test"){
 			steps{
-				sh "mvn clean test -DBROWSER='${browser}'
+				sh "mvn clean test -DBROWSER='${params.browser}'
 			}
 		}
 	}
