@@ -23,41 +23,46 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BrowserFactory {
 
-	//create webdriver object for given browser
-	public WebDriver createBrowserInstance(String browser) throws MalformedURLException {
+    //create webdriver object for given browser
+    public WebDriver createBrowserInstance(String browser) throws MalformedURLException {
 
-		WebDriver driver = null;
-		//RemoteWebDriver driver = null;
+        WebDriver driver = null;
+        //RemoteWebDriver driver = null;
 
 
-		if(browser.equalsIgnoreCase("Chrome")) {
+        if (browser.equalsIgnoreCase("Chrome")) {
 
-			WebDriverManager.chromedriver().setup();
-			System.setProperty("webdriver.chrome.silentOutput", "true");
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--incognito");
-			DriverFactory.getInstance().setDriver(driver);
-			driver = new ChromeDriver(options);
+            WebDriverManager.chromedriver().setup();
+            System.setProperty("webdriver.chrome.silentOutput", "true");
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--incognito");
+            DriverFactory.getInstance().setDriver(driver);
+            driver = new ChromeDriver(options);
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            System.setProperty("webdriver.firefox.silentOutput", "true");
+            FirefoxOptions options = new FirefoxOptions();
+            //options.addArguments("--incognito");
+            DriverFactory.getInstance().setDriver(driver);
+            driver = new ChromeDriver(options);
+        } else if (browser.equalsIgnoreCase("grid")) {
+            WebDriverManager.chromedriver().setup();
+            System.setProperty("webdriver.chrome.silentOutput", "true");
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--incognito");
+            driver = new RemoteWebDriver(new URL("http://10.0.2.15:4444/wd/hub"), DesiredCapabilities.chrome());
 
-		}else if (browser.equalsIgnoreCase("grid")) {
 
-			WebDriverManager.chromedriver().setup();
-			System.setProperty("webdriver.chrome.silentOutput", "true");
-			ChromeOptions options = new ChromeOptions();
-			options.addArguments("--incognito");
-			driver = new RemoteWebDriver(new URL("http://10.0.2.15:4444/wd/hub"), DesiredCapabilities.chrome());
+            //driver = new FirefoxDriver(foptions);
 
-			
-			//driver = new FirefoxDriver(foptions);
+        }
+        if (browser.equalsIgnoreCase("ie")) {
+            WebDriverManager.iedriver().setup();
+            InternetExplorerOptions iOptions = new InternetExplorerOptions();
+            iOptions.addCommandSwitches("-private");
 
-		} if (browser.equalsIgnoreCase("ie")) {
-
-			WebDriverManager.iedriver().setup();
-			InternetExplorerOptions iOptions = new InternetExplorerOptions();
-			iOptions.addCommandSwitches("-private");
-
-			driver = new InternetExplorerDriver(iOptions);
-		}
-		return driver;
-	}
+            driver = new InternetExplorerDriver(iOptions);
+        }
+        return driver;
+    }
 }

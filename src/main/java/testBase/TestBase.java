@@ -26,7 +26,9 @@ public class TestBase extends ActionEngine {
 
     @BeforeMethod
     public void LaunchApplication() throws Exception {
-        browserName = PropertiesOperations.getPropertyValueByKey("browser");
+        //browserName = PropertiesOperations.getPropertyValueByKey("browser");
+        browserName = System.getProperty("browser");
+        System.out.println("browser name: "+browserName);
         browserFactory = new BrowserFactory();
         DriverFactory.getInstance().setDriver(browserFactory.createBrowserInstance(browserName));
         //driver = browserFactory.initBrowser(browserName);
@@ -37,7 +39,6 @@ public class TestBase extends ActionEngine {
         DriverFactory.getInstance().getDriver().manage().window().maximize();
         System.out.println("Browser maximized");
         DriverFactory.getInstance().getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
     }
 
     @AfterMethod
@@ -69,4 +70,6 @@ public class TestBase extends ActionEngine {
         TestLinkAPIClient api = new TestLinkAPIClient(DEVKEY, URL);
         api.reportTestCaseResult(TestProject, TestPlan, TestcaseID, Build, Notes, Result);
     }
+
+
 }
