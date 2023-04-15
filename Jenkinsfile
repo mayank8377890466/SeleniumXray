@@ -1,7 +1,7 @@
 pipeline {
     // master executor should be set to 0
     agent any
-    properties([parameters([choice(choices: ['chrome\n firefox\nedge\ngrid',
+    properties([parameters([choice(choices: 'chrome\n firefox\nedge\ngrid',
     description: 'select a browser', name: 'browser'), string(defaultValue: 'http://10.0.2.15:4444/wd/hub',
     description: 'enter the grid hub url', name: 'grid_url')])])
     stages {
