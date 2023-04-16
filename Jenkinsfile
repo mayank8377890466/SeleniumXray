@@ -1,5 +1,5 @@
 pipeline {
-    // master executor should be set to 0
+    //master executor should be set to 0
     agent any
    parameters {
      choice choices: ['chrome', 'firefox', 'edge', 'grid'], description: 'Select a browser', name: 'browser'
