@@ -18,7 +18,7 @@ pipeline {
 				sh "docker-compose up -d hub_1 chrome firefox"
 			}
 		}
-		stage("Run Test"){
+		stage("Run Test in Grid"){
 		 when
              {
              expression{
