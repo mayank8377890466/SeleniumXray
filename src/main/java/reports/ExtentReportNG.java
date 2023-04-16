@@ -87,10 +87,10 @@ public class ExtentReportNG {
 		extent.setSystemInfo("OS", "Windows");
 		extent.setSystemInfo("ENV", "QA");
 
-		/*ExtentKlovReporter klov = new ExtentKlovReporter("test_klov_server", "test_klov");
+		ExtentKlovReporter klov = new ExtentKlovReporter("test_klov_server", "test_klov");
 		klov.initMongoDbConnection(new MongoClientURI("mongodb://user:password@localhost:57017"));
 		klov.initKlovServerConnection("http://localhost:6780");
-		extent.attachReporter(sparkReport,klov);*/
+		extent.attachReporter(sparkReport,klov);
 
 
 		return extent;
