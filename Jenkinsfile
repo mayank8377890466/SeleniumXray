@@ -3,6 +3,12 @@ pipeline {
     agent any
    parameters {
      choice choices: ['chrome', 'firefox', 'edge', 'grid'], description: 'Select a browser', name: 'browser'
+     when
+     {
+     expression{
+     params.browser==grid
+     }
+     }
      string defaultValue: 'http://10.0.2.15:4444/wd/hub', description: 'Enter grid hub url', name: 'grid_hub'
    }
     stages {
