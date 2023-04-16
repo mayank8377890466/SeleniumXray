@@ -18,28 +18,11 @@ pipeline {
 				sh "docker-compose up -d hub_1 chrome firefox"
 			}
 		}
-		stage("Run Test in Grid"){
-		 when
-             {
-             expression{
-             params.browser==grid
-             }
-             }
+		stage("Run Test"){
 			steps{
 				sh "mvn clean test -Dbrowser='${params.browser}' -Dgrid_hub='${params.grid_hub}'"
 			}
 		}
-		stage("Run Test"){
-        		 when
-                     {
-                     expression{
-                     params.browser!=grid
-                     }
-                     }
-        			steps{
-        				sh "mvn clean test -Dbrowser='${params.browser}'"
-        			}
-        		}
 	}
 	post{
 		always{
