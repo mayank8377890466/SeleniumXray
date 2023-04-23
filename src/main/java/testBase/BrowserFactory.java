@@ -40,11 +40,11 @@ public class BrowserFactory {
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
-            System.setProperty("webdriver.firefox.silentOutput", "true");
-            FirefoxOptions options = new FirefoxOptions();
+            //System.setProperty("webdriver.firefox.silentOutput", "true");
+            //FirefoxOptions options = new FirefoxOptions();
             //options.addArguments("--incognito");
             DriverFactory.getInstance().setDriver(driver);
-            driver = new ChromeDriver(options);
+            driver = new FirefoxDriver();
         } else if (browser.equalsIgnoreCase("grid")) {
             WebDriverManager.chromedriver().setup();
             System.setProperty("webdriver.chrome.silentOutput", "true");
