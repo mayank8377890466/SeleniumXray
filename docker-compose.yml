@@ -12,8 +12,8 @@ services:
       - SE_EVENT_BUS_HOST=hub_1
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_MAX_SESSIONS=4
-      - SE_NODE_MAX_INSTANCES=4
+      - SE_NODE_MAX_SESSIONS=6
+      - SE_NODE_MAX_INSTANCES=6
 
   edge:
     image: selenium/node-edge:4.5.0-20221004
