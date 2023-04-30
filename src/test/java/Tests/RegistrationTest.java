@@ -9,6 +9,7 @@ import pageObjects.LoginPage;
 import pageObjects.RegistrationPage;
 import reports.ExtentFactory;
 import reusableComponents.ExcelOperations;
+import reusableComponents.Log;
 import reusableComponents.TeslinkEngine;
 import testBase.DriverFactory;
 import testBase.TestBase;
@@ -65,7 +66,8 @@ public class RegistrationTest extends TestBase {
             System.out.println(e.getMessage());
             //TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
             //TeslinkEngine.notes = "Execution failed";
-            Assert.fail("Cant do login");
+            Log.error("cant do registration");
+            Assert.fail("Cant do registration");
         }
         finally {
             //reportResult(testProject, testPlan, testCase, build, notes, result);

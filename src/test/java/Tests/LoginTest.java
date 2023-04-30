@@ -10,6 +10,7 @@ import pageObjects.RegistrationPage;
 
 import reports.ExtentFactory;
 import reusableComponents.ExcelOperations;
+import reusableComponents.Log;
 import reusableComponents.TeslinkEngine;
 import testBase.DriverFactory;
 import testBase.TestBase;
@@ -81,6 +82,7 @@ public class LoginTest extends TestBase {
             System.out.println(e.getMessage());
             //TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
             //TeslinkEngine.notes = "Execution failed";
+            Log.error("cant do login");
             Assert.fail("Cant do login");
         } finally {
             //reportResult(testProject, testPlan, testCase, build, notes, result);
@@ -114,6 +116,7 @@ public class LoginTest extends TestBase {
             System.out.println(e.getMessage());
             //TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
             //TeslinkEngine.notes = "Execution failed";
+            Log.error("cant do login");
             Assert.fail("Cant do login");
         }finally {
             //reportResult(testProject, testPlan, testCase, build, notes, result);

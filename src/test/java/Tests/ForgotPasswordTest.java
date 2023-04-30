@@ -10,6 +10,7 @@ import pageObjects.LoginPage;
 import pageObjects.RegistrationPage;
 import reports.ExtentFactory;
 import reusableComponents.ExcelOperations;
+import reusableComponents.Log;
 import reusableComponents.TeslinkEngine;
 import testBase.DriverFactory;
 import testBase.TestBase;
@@ -74,7 +75,8 @@ public class    ForgotPasswordTest extends TestBase {
             System.out.println(e.getMessage());
             //TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
             //TeslinkEngine.notes = "Execution failed";
-            Assert.fail("Cant do login");
+            Log.error("cant get password");
+            Assert.fail("Cant get password");
         }
         finally {
             //reportResult(testProject, testPlan, testCase, build, notes, result);
@@ -101,7 +103,8 @@ public class    ForgotPasswordTest extends TestBase {
             System.out.println(e.getMessage());
             //TeslinkEngine.result = TestLinkAPIResults.TEST_FAILED;
             //TeslinkEngine.notes = "Execution failed";
-            Assert.fail("Cant do login");
+            Log.error("Cant get password");
+            Assert.fail("Cant get password");
         }
         finally {
             //reportResult(testProject, testPlan, testCase, build, notes, result);

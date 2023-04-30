@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.ExtentFactory;
+import reusableComponents.Log;
 
 import static com.aventstack.extentreports.Status.INFO;
 
@@ -43,42 +44,44 @@ public class LoginPage {
         Thread.sleep(5000);
         accountLink.click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on account link");
-        //Log.info("clicked on account link");
+        Log.info("clicked on account link");
     }
 
     public  void clickLoginLink() throws InterruptedException {
-        //Log.info("Click on login link");
         Thread.sleep(5000);
         loginLink.click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on login link");
+        Log.info("Click on login link");
     }
 
     public void clickForgotPasswordLink() throws InterruptedException {
-        //Log.info("Click on login link");
         Thread.sleep(5000);
         forgotPasswordLink.click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on forgot password link");
+        Log.info("Click on forgot password link");
     }
 
     public void enterEmail(String emailTeXt) {
         email.sendKeys(emailTeXt);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter email is :"+emailTeXt);
+        Log.info("Enter email is :"+emailTeXt);
     }
 
     public void clickLoginButton() {
         loginButton.click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on login button");
+        Log.info("Click on login button");
     }
 
     public void verifyLogin() {
         welcomeText.isDisplayed();
+        Log.info("login done...");
     }
 
     public void clickRegister() throws InterruptedException {
         Thread.sleep(5000);
         registerLink.click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on register link");
-        //Log.info("clicked on register link");
-        //logger.info("clicked on register link");
+        Log.info("clicked on register link");
     }
 }

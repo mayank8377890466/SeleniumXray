@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.ExtentFactory;
+import reusableComponents.Log;
 
 
 import java.util.Random;
@@ -68,7 +69,7 @@ public class RegistrationPage {
         //driver.findElement(By.linkText("ACCOUNT")).click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on account link");
         ExtentFactory.getInstance().getExtent().assignAuthor("Mayank Mishra");
-        //Log.info("clicked on account link");
+        Log.info("clicked on account link");
     }
 
 
@@ -90,23 +91,26 @@ public class RegistrationPage {
         Thread.sleep(5000);
         registerLink.click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on register link");
-        //Log.info("clicked on register link");
+        Log.info("clicked on register link");
         //logger.info("clicked on register link");
     }
 
     public void enterFirstname(String fname) {
         firstName.sendKeys(fname);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter first name :"+fname);
+        Log.info("enter first name :" +fname);
     }
 
     public void enterMiddleName(String mname) {
         middlename.sendKeys(mname);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter middle name :"+mname);
+        Log.info("enter middle name :" +mname);
     }
 
     public void enterLatName(String lname) {
         lastName.sendKeys(lname);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter last name :"+lname);
+        Log.info("enter last name :" +lname);
     }
 
     public void enterEmail() {
@@ -115,32 +119,36 @@ public class RegistrationPage {
         String emailId="dummyEmail" + randomInt + "@gmail.com";
         email.sendKeys(emailId);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter emailId :"+emailId);
+        Log.info("enter email :" +emailId);
     }
 
     public void enterPassword(String pwd) {
         password.sendKeys(pwd);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter password is :"+pwd);
+        Log.info("enter password :" +pwd);
     }
 
     public void enterConfirmPassword(String cpwd) {
         passwordConfirm.sendKeys(cpwd);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter confirm password is :"+cpwd);
+        Log.info("enter confirm password :" +cpwd);
     }
 
     public void selectSubscribe() {
         issubscribed.click();
-
+        Log.info("select subscribed");
     }
 
     public boolean isSubscribe() {
         boolean isSubscribe = issubscribed.isSelected();
-        //Log.info("newsletter subscribed");
+        Log.info("newsletter subscribed");
         return isSubscribe;
     }
 
     public void clickRegisterButton() {
         registerButton.click();
         ExtentFactory.getInstance().getExtent().log(INFO,"click on register button");
+        Log.info("click on register button");
     }
 
     public void verifySuccessRegistration(String expectedText) {
@@ -150,27 +158,28 @@ public class RegistrationPage {
         //Log.info("registration done");
         successMessage.isDisplayed();
         ExtentFactory.getInstance().getExtent().log(INFO,"Registration done");
+        Log.info("Registration done");
     }
 
     public void clickMyAccount() {
         myAccountLink.click();
-        //Log.info("clicked on my account link");
+        Log.info("clicked on my account link");
     }
 
 
     public void logout() {
         logoutLink.click();
-        ///Log.info("clicked on logout link");
+        Log.info("clicked on logout link");
     }
 
     public void clickEdit() {
         editAccountInfo.click();
-        //Log.info("editing account info");
+        Log.info("editing account info");
     }
 
     public String getEmail() {
         String emailText = email.getAttribute("value");
-        //Log.info("email is :" + emailText);
+        Log.info("email is :" + emailText);
         return emailText;
     }
 
@@ -178,7 +187,7 @@ public class RegistrationPage {
         String fname = firstName.getAttribute("value");
         String lname = lastName.getAttribute("value");
         String fullName = fname + " " + lname;
-        //Log.info("full name is :" + fullName);
+        Log.info("full name is :" + fullName);
         return fullName;
     }
 

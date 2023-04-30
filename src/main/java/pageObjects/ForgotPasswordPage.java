@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import reports.ExtentFactory;
+import reusableComponents.Log;
 
 import java.util.Random;
 
@@ -35,10 +36,11 @@ public class ForgotPasswordPage {
 
 
     public void clickForgotPasswordLink() throws InterruptedException {
-        //Log.info("Click on login link");
+
         Thread.sleep(5000);
         forgotPasswordLink.click();
         ExtentFactory.getInstance().getExtent().log(INFO, "Click on forgot password link");
+        Log.info("Click on forgot password link");
     }
 
     public void enterEmail() {
@@ -47,23 +49,25 @@ public class ForgotPasswordPage {
         String email="dummyEmail" + randomInt + "@gmail.com";
         emailId.sendKeys(email);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter emailId :"+email);
-
+        Log.info("Enter emailId :"+email);
     }
 
     public void clickSubmit() {
         submitButton.click();
         ExtentFactory.getInstance().getExtent().log(INFO, "click on submit button");
+        Log.info("click on submit button");
     }
 
     public void verifySuccessMessage(String emailTeXt) {
         successMessage.isDisplayed();
         ExtentFactory.getInstance().getExtent().log(INFO, "forgot password email sent to :" + emailTeXt);
+        Log.info("forgot password email sent to :"+emailTeXt);
     }
+
 
     public void verifyBlankEmailMessage() {
         blankEmailErrMsg.isDisplayed();
         ExtentFactory.getInstance().getExtent().log(INFO, "Email id can not be blank");
+        Log.info("Email id can not be blank");
     }
-
-
 }
