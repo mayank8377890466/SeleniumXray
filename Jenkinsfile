@@ -5,7 +5,7 @@ pipeline {
      choice choices: ['chrome', 'firefox', 'edge', 'grid'], description: 'Select a browser', name: 'browser'
      string defaultValue: 'http://10.0.2.15:4444/wd/hub', description: 'Enter grid hub url', name: 'grid_hub'
      choice choices: ['methods', 'classes', 'tests'], description: 'Select parallel ', name: 'parallel'
-     string defaultValue: '0', description: 'Enter thread count', name: 'thread-count'
+     string defaultValue: '0', description: 'Enter thread count', name: 'threadcount'
    }
     stages {
     stage("SonarQube Analysis"){
@@ -22,7 +22,7 @@ pipeline {
 		}
 		stage("Run Test"){
 			steps{
-				sh "mvn clean test -Dbrowser='${params.browser}' -Dgrid_hub='${params.grid_hub}' -Dparallel='${params.parallel}' -Dthreadcount='${params.thread-count}'"
+				sh "mvn clean test -Dbrowser='${params.browser}' -Dgrid_hub='${params.grid_hub}' -Dparallel='${params.parallel}' -Dthreadcount='${params.threadcount}'"
 			}
 		}
 	}
