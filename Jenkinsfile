@@ -2,7 +2,7 @@ pipeline {
     //master executor should be set to 0
     agent any
    parameters {
-     choice choices: ['chrome', 'firefox', 'edge', 'grid'], description: 'Select a browser', name: 'browser'
+     choice choices: ['chrome', 'firefox', 'edge', 'grid','chromelinux'], description: 'Select a browser', name: 'browser'
      string defaultValue: 'http://10.0.2.15:4444/wd/hub', description: 'Enter grid hub url', name: 'grid_hub'
      choice choices: ['methods', 'classes', 'tests'], description: 'Select parallel ', name: 'parallel'
      string defaultValue: '0', description: 'Enter thread count', name: 'threadcount'

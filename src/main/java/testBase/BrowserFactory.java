@@ -40,7 +40,7 @@ public class BrowserFactory {
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
-            //System.setProperty("webdriver.firefox.silentOutput", "true");
+            //System.setProperty("webdriver.gecko.driver", "true");
             //FirefoxOptions options = new FirefoxOptions();
             //options.addArguments("--incognito");
             DriverFactory.getInstance().setDriver(driver);
@@ -51,17 +51,29 @@ public class BrowserFactory {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--incognito");
             driver = new RemoteWebDriver(new URL(System.getProperty("grid_hub")), DesiredCapabilities.chrome());
-
-
             //driver = new FirefoxDriver(foptions);
 
-        }
-        if (browser.equalsIgnoreCase("ie")) {
+        }else if (browser.equalsIgnoreCase("ie")) {
             WebDriverManager.iedriver().setup();
             InternetExplorerOptions iOptions = new InternetExplorerOptions();
             iOptions.addCommandSwitches("-private");
 
             driver = new InternetExplorerDriver(iOptions);
+        }
+        else if (browser.equalsIgnoreCase("chromelinux"))
+        {
+            WebDriverManager.chromedriver().setup();
+            System.setProperty("webdriver.chrome.silentOutput", "true");
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("start-maximized"); // open Browser in maximized mode
+            options.addArguments("disable-infobars"); // disabling infobars
+            options.addArguments("--disable-extensions"); // disabling extensions
+            options.addArguments("--disable-gpu"); // applicable to windows os only
+            options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+            options.addArguments("--no-sandbox"); // Bypass OS security model
+            DriverFactory.getInstance().setDriver(driver);
+            driver = new ChromeDriver(options);
+
         }
         return driver;
     }
