@@ -26,8 +26,8 @@ public class TestBase extends ActionEngine {
 
     @BeforeMethod
     public void LaunchApplication() throws Exception {
-        //browserName = PropertiesOperations.getPropertyValueByKey("browser");
-        browserName = System.getProperty("browser");
+        browserName = PropertiesOperations.getPropertyValueByKey("browser");
+        //browserName = System.getProperty("browser");
         System.out.println("browser name: "+browserName);
         browserFactory = new BrowserFactory();
         DriverFactory.getInstance().setDriver(browserFactory.createBrowserInstance(browserName));

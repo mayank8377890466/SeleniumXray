@@ -78,6 +78,7 @@ public class RegistrationPage {
         Thread.sleep(5000);
         loginLink.click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on login link");
+        Log.info("Click on login link");
     }
 
     public void clickForgotPasswordLink() throws InterruptedException {

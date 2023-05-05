@@ -1,10 +1,15 @@
 package reusableComponents;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 public class Log {
 
     //Initialize Log4j logs
-    private static Logger Log = Logger.getLogger(Log.class.getName());//
+    //private static Logger Log = Logger.getLogger(Log.class.getName());//
+    //private static final Logger Log =  LogManager.getLogger(Log.class);
 
+    private static Logger Log = Logger.getLogger("devpinoyLogger");
     // This is to print log for the beginning of the test case, as we usually run so many test ExecutionEngine as a test suite
     public static void startTestCase(String sTestCaseName){
         Log.info("****************************************************************************************");
