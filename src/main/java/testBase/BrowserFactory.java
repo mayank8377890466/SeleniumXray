@@ -36,6 +36,9 @@ public class BrowserFactory {
             System.setProperty("webdriver.chrome.silentOutput", "true");
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--incognito");
+            options.addArguments("--headless");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
             DriverFactory.getInstance().setDriver(driver);
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {
