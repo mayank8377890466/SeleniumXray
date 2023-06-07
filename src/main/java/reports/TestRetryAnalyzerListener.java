@@ -7,11 +7,7 @@ import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;
 import reports.TestRetryAnalyzer;
 
-/**
- * @author: Prakash Narkhede
- * @Youtube: https://www.youtube.com/automationtalks
- * @LinkedIn: https://www.linkedin.com/in/panarkhede89/
- */
+
 public class TestRetryAnalyzerListener implements IAnnotationTransformer{
 
 	@Override

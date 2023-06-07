@@ -8,16 +8,16 @@ import reports.ExtentFactory;
 import reusableComponents.Log;
 
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Random;
 
 import static com.aventstack.extentreports.Status.INFO;
 
 public class RegistrationPage {
     private WebDriver driver;
-
-    //Asserssion asserssion;
-
-    public RegistrationPage(WebDriver driver) {
+    private Random rand = SecureRandom.getInstanceStrong();
+    public RegistrationPage(WebDriver driver) throws NoSuchAlgorithmException {
         //driver=DriverFactory.getInstance().getDriver();
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -62,11 +62,6 @@ public class RegistrationPage {
     public  void clickAccount() throws InterruptedException {
         Thread.sleep(5000);
         accountLink.click();
-        //loginLink.click();
-        //forgotPasswordLink.click();
-        //loginLink.click();
-        //driver=DriverFactory.getInstance().getDriver();
-        //driver.findElement(By.linkText("ACCOUNT")).click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on account link");
         ExtentFactory.getInstance().getExtent().assignAuthor("Mayank Mishra");
         Log.info("clicked on account link");
@@ -82,10 +77,11 @@ public class RegistrationPage {
     }
 
     public void clickForgotPasswordLink() throws InterruptedException {
-        //Log.info("Click on login link");
+
         Thread.sleep(5000);
         forgotPasswordLink.click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on forgot password link");
+        Log.info("Click on forgot password link");
     }
 
     public void clickRegister() throws InterruptedException {
@@ -93,7 +89,6 @@ public class RegistrationPage {
         registerLink.click();
         ExtentFactory.getInstance().getExtent().log(INFO,"Click on register link");
         Log.info("clicked on register link");
-        //logger.info("clicked on register link");
     }
 
     public void enterFirstname(String fname) {
@@ -115,9 +110,8 @@ public class RegistrationPage {
     }
 
     public void enterEmail() {
-        Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(1000);
-        String emailId="dummyEmail" + randomInt + "@gmail.com";
+        int rValue = this.rand.nextInt(1000);
+        String emailId="dummyEmail" + rValue + "@gmail.com";
         email.sendKeys(emailId);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter emailId :"+emailId);
         Log.info("enter email :" +emailId);
@@ -153,10 +147,6 @@ public class RegistrationPage {
     }
 
     public void verifySuccessRegistration(String expectedText) {
-        //Utility.isElementPresent(successMessage, driver);
-        //String actualText = successMessage.getText();
-        //asserssion.isTextSame(expectedText, actualText);
-        //Log.info("registration done");
         successMessage.isDisplayed();
         ExtentFactory.getInstance().getExtent().log(INFO,"Registration done");
         Log.info("Registration done");

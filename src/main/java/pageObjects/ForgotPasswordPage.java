@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import reports.ExtentFactory;
 import reusableComponents.Log;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Random;
 
 import static com.aventstack.extentreports.Status.INFO;
@@ -14,9 +16,9 @@ import static com.aventstack.extentreports.Status.INFO;
 public class ForgotPasswordPage {
 
     private WebDriver driver;
+    private Random rand = SecureRandom.getInstanceStrong();
 
-
-    public ForgotPasswordPage(WebDriver driver) {
+    public ForgotPasswordPage(WebDriver driver) throws NoSuchAlgorithmException {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -44,9 +46,8 @@ public class ForgotPasswordPage {
     }
 
     public void enterEmail() {
-        Random randomGenerator = new Random();
-        int randomInt = randomGenerator.nextInt(1000);
-        String email="dummyEmail" + randomInt + "@gmail.com";
+        int rValue = this.rand.nextInt(1000);
+        String email="dummyEmail" + rValue + "@gmail.com";
         emailId.sendKeys(email);
         ExtentFactory.getInstance().getExtent().log(INFO,"Enter emailId :"+email);
         Log.info("Enter emailId :"+email);

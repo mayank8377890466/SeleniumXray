@@ -2,11 +2,6 @@ package reports;
 
 import com.aventstack.extentreports.ExtentTest;
 
-/**
- * @author: Prakash Narkhede
- * @Youtube: https://www.youtube.com/automationtalks
- * @LinkedIn: https://www.linkedin.com/in/panarkhede89/
- */
 public class ExtentFactory {
 	//Singleton design Pattern
 	//private constructor so that no one else can create object of this class
@@ -22,7 +17,7 @@ public class ExtentFactory {
 	
 	
 	//factory design pattern --> define separate factory methods for creating objects and create objects by calling that methods
-	ThreadLocal<ExtentTest> extent = new ThreadLocal<ExtentTest>();
+	ThreadLocal<ExtentTest> extent = new ThreadLocal<>();
 	
 	public ExtentTest getExtent() {
 		return extent.get();

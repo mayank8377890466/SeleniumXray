@@ -12,16 +12,11 @@ import com.aventstack.extentreports.reporter.configuration.ViewName;
 import com.mongodb.MongoClientURI;
 import reusableComponents.PropertiesOperations;
 
-/**
- * @author: Prakash Narkhede
- * @Youtube: https://www.youtube.com/automationtalks
- * @LinkedIn: https://www.linkedin.com/in/panarkhede89/
- */
 public class ExtentReportNG {
 	
 	static ExtentReports extent;
 
-	public static ExtentReports setupExtentReport() throws Exception {
+	public static ExtentReports setupExtentReport(){
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyy HH-mm-ss");
 		Date date = new Date();
 		String actualDate = format.format(date);
@@ -80,17 +75,17 @@ public class ExtentReportNG {
 		sparkReport2.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
 		sparkReport2.config().thumbnailForBase64(true);
 
-		//extent.setSystemInfo("Executed on Environment: ", new PropertyReader().readProperty("host"));
-		//extent.setSystemInfo("Executed on Browser: ", new PropertyReader().readProperty("browser"));
+		extent.setSystemInfo("Executed on Environment: ", PropertiesOperations.getPropertyValueByKey("url"));
+		extent.setSystemInfo("Executed on Browser: ", PropertiesOperations.getPropertyValueByKey("browser"));
 		extent.setSystemInfo("Executed on OS: ", System.getProperty("os.name"));
 		extent.setSystemInfo("Executed by User: ", System.getProperty("user.name"));
 		extent.setSystemInfo("OS", "Windows");
 		extent.setSystemInfo("ENV", "QA");
 
-		ExtentKlovReporter klov = new ExtentKlovReporter("test_klov_server", "test_klov");
+		/*ExtentKlovReporter klov = new ExtentKlovReporter("test_klov_server", "test_klov");
 		klov.initMongoDbConnection(new MongoClientURI("mongodb://user:password@localhost:57017"));
 		klov.initKlovServerConnection("http://localhost:6780");
-		extent.attachReporter(sparkReport,klov);
+		extent.attachReporter(sparkReport,klov);*/
 
 
 		return extent;

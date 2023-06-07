@@ -17,11 +17,7 @@ import com.aventstack.extentreports.Status;
 import reusableComponents.PropertiesOperations;
 import testBase.DriverFactory;
 
-/**
- * @author: Prakash Narkhede
- * @Youtube: https://www.youtube.com/automationtalks
- * @LinkedIn: https://www.linkedin.com/in/panarkhede89/
- */
+
 public class ListenersImplementation implements ITestListener{
 	//JiraOperations jiraOps = new JiraOperations();
 
